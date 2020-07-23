@@ -5,16 +5,9 @@ import ru.javawebinar.basejava.model.Resume;
 /**
  * Array based storage for Resumes
  */
-public class ArrayStorage {
+public class ArrayStorage extends AbstractArrayStorage {
     private Resume[] storage = new Resume[10000];
     private int size = 0;
-
-    public void clear() {
-        for (int i = 0; i < size; i++) {
-            storage[i] = null;
-        }
-        size = 0;
-    }
 
     public void update(Resume resume) {
         int index = getIndex(resume.getUuid());
@@ -58,22 +51,11 @@ public class ArrayStorage {
         }
     }
 
-    /**
-     * @return array, contains only Resumes in storage (without null)
-     */
-    public Resume[] getAll() {
-        Resume[] resumes = new Resume[size];
-        if (size >= 0) {
-            System.arraycopy(storage, 0, resumes, 0, size);
-        }
-        return resumes;
-    }
-
     public int size() {
         return size;
     }
 
-    private int getIndex(String uuid) {
+    protected int getIndex(String uuid) {
         for (int i = 0; i < size; i++) {
             if (uuid.equals(storage[i].getUuid())) {
                 return i;
