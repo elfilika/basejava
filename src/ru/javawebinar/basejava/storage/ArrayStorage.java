@@ -7,28 +7,14 @@ import ru.javawebinar.basejava.model.Resume;
  */
 public class ArrayStorage extends AbstractArrayStorage {
 
-    public void save(Resume resume) {
-        int index = getIndex(resume.getUuid());
-        if (index > 0) {
-            System.out.println("ERROR: Resume " + resume.getUuid() + " already exist");
-        } else if (size == storage.length) {
-            System.out.println("ERROR: Storage overflow");
-        } else {
-            /* add element */
-            storage[size] = resume;
-            size++;
-        }
+    @Override
+    protected void insertElement(Resume resume, int index) {
+        storage[size] = resume;
     }
 
-    public void delete(String uuid) {
-        int index = getIndex(uuid);
-        if (index < 0) {
-            System.out.println("ERROR: Resume " + uuid + " not exist");
-        } else {
-            storage[index] = storage[size - 1];
-            storage[size - 1] = null;
-            size--;
-        }
+    @Override
+    protected void fillDeletedElement(int index) {
+        storage[index] = storage[size - 1];
     }
 
     protected int getIndex(String uuid) {
