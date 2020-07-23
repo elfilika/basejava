@@ -1,6 +1,6 @@
-package com.urase.webapp.storage;
+package ru.javawebinar.basejava.storage;
 
-import com.urase.webapp.model.Resume;
+import ru.javawebinar.basejava.model.Resume;
 
 /**
  * Array based storage for Resumes

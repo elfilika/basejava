@@ -1,10 +1,10 @@
-package com.urase.webapp;
+package ru.javawebinar.basejava;
 
-import com.urase.webapp.model.Resume;
-import com.urase.webapp.storage.ArrayStorage;
+import ru.javawebinar.basejava.model.Resume;
+import ru.javawebinar.basejava.storage.ArrayStorage;
 
 /**
- * Test for your com.urase.webapp.storage.ArrayStorage implementation
+ * Test for your ru.javawebinar.basejava.storage.ArrayStorage implementation
  */
 public class MainTestArrayStorage {
     static final ArrayStorage ARRAY_STORAGE = new ArrayStorage();
