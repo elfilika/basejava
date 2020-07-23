@@ -15,11 +15,9 @@ public class SortedArrayStorage extends AbstractArrayStorage {
             System.out.println("ERROR: Storage overflow");
         } else {
             //add element with sort
-            index = (index * -1) - 1; //binary search returns (-index_to_insert - 1)
+            index = -index - 1; //binary search returns (-index_to_insert - 1)
             //move tail
-            for (int i = size; i > index; i--) {
-                storage[i] = storage[i - 1];
-            }
+            System.arraycopy(storage, index, storage, index + 1, size - index);
             storage[index] = resume;
             size++;
         }
@@ -31,10 +29,8 @@ public class SortedArrayStorage extends AbstractArrayStorage {
         if (index < 0) {
             System.out.println("ERROR: Resume " + uuid + " not exist");
         } else {
-            for (int i = index; i < size; i++) {
-                storage[i] = storage[i + 1];
-            }
-            //storage[size] = null;
+            System.arraycopy(storage, index + 1, storage, index, size - index - 1);
+            storage[size] = null;
             size--;
         }
     }
