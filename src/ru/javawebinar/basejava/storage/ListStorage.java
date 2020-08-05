@@ -13,10 +13,10 @@ public class ListStorage extends AbstractStorage {
         stlist.clear();
     }
 
-    @Override
+    /*@Override
     public Resume[] getAll() {
         return stlist.toArray(new Resume[stlist.size()]);
-    }
+    }*/
 
     @Override
     public int size() {
@@ -59,5 +59,10 @@ public class ListStorage extends AbstractStorage {
     protected void doDelete(Object searchKey) {
         Integer index = (Integer) searchKey;
         stlist.remove(index.intValue());
+    }
+
+    @Override
+    public List<Resume> doCopyAll() {
+        return new ArrayList<>(stlist);
     }
 }
