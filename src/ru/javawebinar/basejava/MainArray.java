@@ -28,7 +28,7 @@ public class MainArray {
             }
             String uuid = null;
             String fullName = null;
-            if (params.length >= 2) {
+            if (params.length > 1) {
                 uuid = params[1].intern();
                 try {
                     fullName = params[2].intern();
